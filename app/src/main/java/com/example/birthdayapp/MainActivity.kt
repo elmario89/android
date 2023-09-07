@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,6 +14,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -41,12 +43,21 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.dark)
-    Image(
-        painter = image,
-        contentDescription = null,
-        Modifier.fillMaxSize(),
-        contentScale = ContentScale.Crop
-    )
+    Box {
+        Image(
+            painter = image,
+            contentDescription = null,
+            Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
+        GreetingText(
+            message = message,
+            from = from,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(20.dp)
+        )
+    }
 }
 
 @Composable
@@ -56,19 +67,23 @@ fun GreetingText(
     from: String = "Your Best Friend",
 ) {
     Column(
-        verticalArrangement = Arrangement.Center,
-        modifier = modifier.padding(20.dp)
+        verticalArrangement = Arrangement.Top,
+        modifier = modifier
+            .padding(20.dp)
     ) {
+        val purpleColor = android.graphics.Color.parseColor("#a200bf")
         Text(
             text = message,
-            fontSize = 80.sp,
-            lineHeight = 96.sp,
-            textAlign = TextAlign.Right
+            fontSize = 32.sp,
+            lineHeight = 35.sp,
+            textAlign = TextAlign.Right,
+            color = Color(purpleColor)
         )
         Text(
             text = from,
-            fontSize = 30.sp,
-            lineHeight = 40.sp,
+            fontSize = 20.sp,
+            lineHeight = 22.sp,
+            color = Color(purpleColor),
         )
     }
 }
