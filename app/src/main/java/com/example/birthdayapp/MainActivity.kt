@@ -1,4 +1,5 @@
 package com.example.birthdayapp
+import androidx.compose.foundation.Image
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,6 +13,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,14 +39,25 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
+    val image = painterResource(R.drawable.dark)
+    Image(
+        painter = image,
+        contentDescription = null,
+        Modifier.fillMaxSize(),
+        contentScale = ContentScale.Crop
+    )
+}
+
+@Composable
 fun GreetingText(
     message: String,
     modifier: Modifier = Modifier,
     from: String = "Your Best Friend",
 ) {
     Column(
-            verticalArrangement = Arrangement.Center,
-            modifier = modifier.padding(20.dp)
+        verticalArrangement = Arrangement.Center,
+        modifier = modifier.padding(20.dp)
     ) {
         Text(
             text = message,
@@ -66,6 +80,6 @@ fun GreetingText(
 @Composable
 fun BirthdayAppPreview() {
     BirthdayAppTheme {
-        GreetingText(message = "Happy birthday Mikhail")
+        GreetingImage(message = "В субботу пять пар мои чуваки...", "От Михаила")
     }
 }
