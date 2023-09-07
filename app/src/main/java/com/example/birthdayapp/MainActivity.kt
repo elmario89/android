@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(message = "Happy Birthday Mikhail", from = "From Mikhail")
+                    GreetingImage(message = getString(R.string.title), from = getString(R.string.subtitle))
                 }
             }
         }
@@ -71,19 +71,19 @@ fun GreetingText(
         modifier = modifier
             .padding(20.dp)
     ) {
-        val purpleColor = android.graphics.Color.parseColor("#ba0000")
+        val redColor = android.graphics.Color.parseColor("#ba0000")
         Text(
             text = message,
             fontSize = 40.sp,
             lineHeight = 40.sp,
             textAlign = TextAlign.Right,
-            color = Color(purpleColor)
+            color = Color(redColor)
         )
         Text(
             text = from,
             fontSize = 30.sp,
             lineHeight = 32.sp,
-            color = Color(purpleColor),
+            color = Color(redColor),
         )
     }
 }
