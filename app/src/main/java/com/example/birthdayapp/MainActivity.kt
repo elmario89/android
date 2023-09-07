@@ -30,11 +30,20 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(message: String, modifier: Modifier = Modifier) {
+fun GreetingText(
+    message: String,
+    modifier: Modifier = Modifier,
+    from: String = "Your Best Friend",
+) {
+    Text(
+        text = from,
+        fontSize = 60.sp,
+        lineHeight = 70.sp
+    )
     Text(
         text = message,
-        fontSize = 100.sp,
-        lineHeight = 110.sp
+        fontSize = 80.sp,
+        lineHeight = 96.sp
     )
 }
 
