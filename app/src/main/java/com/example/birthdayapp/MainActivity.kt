@@ -48,7 +48,7 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
             painter = image,
             contentDescription = null,
             Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop,
         )
         GreetingText(
             message = message,
@@ -67,22 +67,22 @@ fun GreetingText(
     from: String = "Your Best Friend",
 ) {
     Column(
-        verticalArrangement = Arrangement.Top,
+        verticalArrangement = Arrangement.SpaceBetween,
         modifier = modifier
             .padding(20.dp)
     ) {
-        val purpleColor = android.graphics.Color.parseColor("#a200bf")
+        val purpleColor = android.graphics.Color.parseColor("#ba0000")
         Text(
             text = message,
-            fontSize = 32.sp,
-            lineHeight = 35.sp,
+            fontSize = 40.sp,
+            lineHeight = 40.sp,
             textAlign = TextAlign.Right,
             color = Color(purpleColor)
         )
         Text(
             text = from,
-            fontSize = 20.sp,
-            lineHeight = 22.sp,
+            fontSize = 30.sp,
+            lineHeight = 32.sp,
             color = Color(purpleColor),
         )
     }
