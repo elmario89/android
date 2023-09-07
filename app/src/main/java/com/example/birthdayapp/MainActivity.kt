@@ -3,6 +3,7 @@ package com.example.birthdayapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -35,16 +36,18 @@ fun GreetingText(
     modifier: Modifier = Modifier,
     from: String = "Your Best Friend",
 ) {
-    Text(
-        text = from,
-        fontSize = 60.sp,
-        lineHeight = 70.sp
-    )
-    Text(
-        text = message,
-        fontSize = 80.sp,
-        lineHeight = 96.sp
-    )
+    Row {
+        Text(
+            text = from,
+            fontSize = 60.sp,
+            lineHeight = 70.sp
+        )
+        Text(
+            text = message,
+            fontSize = 80.sp,
+            lineHeight = 96.sp
+        )
+    }
 }
 
 @Preview(
